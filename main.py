@@ -18,7 +18,6 @@ cnts = sorted(cnts, key=lambda x: cv2.boundingRect(x)[0])
 for c in cnts:
     x, y, w, h = cv2.boundingRect(c)
     if h > 200 and w > 20:
-        # cv2.rectangle(image, (x, y), (x + w, y + h), (36, 255, 12), 2)
         crop_img = image[y:y+h, x:x+w]
 
 result = pytesseract.image_to_string(crop_img)
